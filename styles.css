@@ -199,7 +199,7 @@ nav {
 }
 
 .project__img {
-  max-height: 600px;
+  height: 700px;
   width: 100%;
 }
 
@@ -268,7 +268,7 @@ nav {
 
 /* footer */
 
-.logo {
+.footer__logo-img {
     height: 100px;
     width: 100%;
 }
@@ -276,10 +276,24 @@ nav {
 footer {
   background: #242424;
   display: flex;
+  padding: 6% 0;
 }
 
 .footer__row {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.footer__social--list {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.footer__social--link,
+.footer__copyright {
+    color: white;
 }
