@@ -6,7 +6,7 @@ function contact(event) {
     event.preventDefault();
     const loading = document.querySelector('.modal__overlay--loading')
     const success = document.querySelector('.modal__overlay--success')
-    loading.classlist += " modal__overlay--visible"
+    loading.classList += " modal__overlay--visible"
     emailjs
         .sendForm(
             'service_yep9wjg',
@@ -14,8 +14,8 @@ function contact(event) {
             event.target,
             'dbLyKxuFSb-dZwgDR'
         ).then(() => {
-            loadingoading.classList.remove("modal__overlay--visible");
-            success.classList += " modal__overlay--visible";
+            loading.classList.remove("modal__overlay--visible");
+            success.classList.add("modal__overlay--visible");
         }).catch(() => {
             loading.classList.remove("modal__overlay--visible")
             alert(
@@ -23,3 +23,4 @@ function contact(event) {
             );
         })
 }
+
