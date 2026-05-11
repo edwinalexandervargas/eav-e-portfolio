@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Portfolio</title>
+    <title>Edwin Alexander Vargas | Frontend Developer</title>
     <link rel="stylesheet" href="styles.css" />
     <script
       src="https://kit.fontawesome.com/decd14f2d7.js"
@@ -28,7 +28,7 @@
         <figure>
           <img
             id="personal-logo"
-            src="./Assets/0a32fa8f-cb97-469f-80f0-5ca79a089e01.jpg"
+            src="./Assets/Profile.jpg"
             alt=""
           />
         </figure>
@@ -68,10 +68,11 @@
           <h1 class="title">Hey</h1>
           <h1 class="title blue">I'm Edwin.</h1>
           <p class="header__para">
-            I'm a <b class="blue">Frontend Software Engineer</b> with a strong
-            passion for building web applications with great user experiences.
+            I'm a <b class="blue">Frontend Developer</b> passionate about
+            building real world web applications with great user experiences.
             <br />
-            Heres a bit more <b class="blue click" onclick="toggleModal()" >about me</b>.
+            Here's a bit more
+            <b class="blue click" onclick="toggleModal()">about me</b>.
           </p>
           <div class="social__list">
             <a
@@ -99,10 +100,10 @@
         </div>
       </header>
       <a href="#">
-          <button class="mail__btn click" onclick="toggleModal()">
-              <i class="fa-solid fa-envelope"></i>
-            </button>
-        </a>
+        <button class="mail__btn click" onclick="toggleModal()">
+          <i class="fa-solid fa-envelope"></i>
+        </button>
+      </a>
       <a href="#projects" class="scroll">
         <div class="scroll__icon click"></div>
       </a>
@@ -112,18 +113,12 @@
             Here's a bit about me.
           </h3>
           <h4 class="modal__sub-title modal__sub-title--about">
-            Frontend Software Engineer
+            Frontend Developer
           </h4>
           <p class="modal__para">
-            I'm a 29 year old
-            <b class="blue">Frontend software engineer</b> with a strong passion
-            for developing websites with great<b class="blue">
-              user experiences.</b
-            >
-            <br />
-            I am currently working on extremely difficult engineering problems
-            and learn from the most <b class="blue">talented</b> and
-            <b class="blue">experienced software engineers</b> every day.
+            I'm a <b class="blue">self-taught frontend developer</b> passionate
+            about building real world web applications. I'm currently seeking my
+            first role in <b class="blue">software engineering.</b>
           </p>
           <div class="modal__languages">
             <figure class="modal__language">
@@ -165,19 +160,15 @@
           <form id="contact__form" onsubmit="contact(event)">
             <div class="form__item">
               <label class="form__item--label" for="name">Name</label>
-              <input class="input" name="user_name" type="text" required/>
+              <input class="input" name="user_name" type="text" required />
             </div>
             <div class="form__item">
               <label class="form__item--label" for="name">Email</label>
-              <input class="input" name="user_email" type="email" required/>
+              <input class="input" name="user_email" type="email" required />
             </div>
             <div class="form__item">
               <label class="form__item--label" for="name">Message</label>
-              <textarea
-                class="input"
-                name="message"
-                type="text"
-              ></textarea>
+              <textarea class="input" name="message" type="text"></textarea>
             </div>
             <button id="contact__submit" class="form__submit">
               Send it my way
@@ -190,16 +181,16 @@
             Thanks for the message! Look forward to speaking to you soon.
           </div>
         </div>
-    </div>
-    <img src="./Assets/circle.svg" class="shape shape--0">
-    <img src="./Assets/circle.svg" class="shape shape--1">
-    <img src="./Assets/squiggly.svg" class="shape shape--2">
-    <img src="./Assets/circle.svg" class="shape shape--3">
-    <img src="./Assets/triangle.svg" class="shape shape--4">
-    <img src="./Assets/circle.svg" class="shape shape--5">
-    <img src="./Assets/squiggly.svg" class="shape shape--6">
-    <img src="./Assets/circle.svg" class="shape shape--7">
-    <img src="./Assets/circle.svg" class="shape shape--8">
+      </div>
+      <img src="./Assets/circle.svg" class="shape shape--0" />
+      <img src="./Assets/circle.svg" class="shape shape--1" />
+      <img src="./Assets/squiggly.svg" class="shape shape--2" />
+      <img src="./Assets/circle.svg" class="shape shape--3" />
+      <img src="./Assets/triangle.svg" class="shape shape--4" />
+      <img src="./Assets/circle.svg" class="shape shape--5" />
+      <img src="./Assets/squiggly.svg" class="shape shape--6" />
+      <img src="./Assets/circle.svg" class="shape shape--7" />
+      <img src="./Assets/circle.svg" class="shape shape--8" />
     </section>
     <section id="projects">
       <div class="container">
@@ -211,28 +202,66 @@
             <li class="project">
               <div class="project__wrapper">
                 <img
-                  src="./Assets/blinker mockup.png"
+                  src="./Assets/AP-Plumbing.png"
                   class="project__img"
                   alt=""
                 />
                 <div class="project__wrapper--bg"></div>
                 <div class="project__description">
-                  <h3 class="project__description--title">
-                    Car Sales Projects
-                  </h3>
+                  <h3 class="project__description--title">AP Plumbing</h3>
                   <h4 class="project__description--sub-title">
-                    HTML, CSS, JavaScript, Vue, Vuex
+                    React, Firebase, Firestore, EmailJS
                   </h4>
                   <p class="project__description--para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt commodi ipsum excepturi ut eaque minima ab officia
-                    voluptatibus obcaecati rerum.
+                    A professional plumbing business website with a customer
+                    review system, admin authentication, and contact form.
                   </p>
                   <div class="project__description--link">
-                    <a href="#" class="project__description--link">
+                    <a
+                      href="https://github.com/edwinalexandervargas/ap-plumbing"
+                      class="project__description--link"
+                    >
                       <i class="fa-brands fa-github"></i>
                     </a>
-                    <a href="#" class="project__description--link">
+                    <a
+                      href="https://ap-plumbing.vercel.app"
+                      class="project__description--link"
+                    >
+                      <i class="fas fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./Assets/netflix-clone-hero-page.png"
+                  class="project__img"
+                  alt=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Netflix Clone</h3>
+                  <h4 class="project__description--sub-title">
+                    React, Vite, React Router, TMDB API, Firebase
+                  </h4>
+                  <p class="project__description--para">
+                    A Netflix-inspired movie browsing app with horizontally
+                    scrollable category rows, live movie data from the TMDB API,
+                    and user authentication.
+                  </p>
+                  <div class="project__description--link">
+                    <a
+                      href="https://github.com/edwinalexandervargas/netflix-clone"
+                      class="project__description--link"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a
+                      href="https://netflix-clone-flax-ten.vercel.app/"
+                      class="project__description--link"
+                    >
                       <i class="fas fa-link"></i>
                     </a>
                   </div>
@@ -249,38 +278,42 @@
           <figure>
             <img
               class="footer__logo-img"
-              src="./Assets/0a32fa8f-cb97-469f-80f0-5ca79a089e01.jpg"
+              src="./Assets/Profile.jpg"
               alt=""
             />
           </figure>
           <div class="footer__social--list">
             <a
-              href="https://github.com/edwinalexandervargas" target="_blank"
+              href="https://github.com/edwinalexandervargas"
+              target="_blank"
               class="footer__social--link link__hover-effect link__hover-effect--white"
             >
               Github
             </a>
             <a
-              href="https://www.linkedin.com/in/edwin-alexander-vargas-613391263/" target="_blank"
+              href="https://www.linkedin.com/in/edwin-alexander-vargas-613391263/"
+              target="_blank"
               class="footer__social--link link__hover-effect link__hover-effect--white"
             >
-              LinkIn
+              LinkedIn
             </a>
             <a
-              href="#" onclick="toggleModal()"
+              href="#"
+              onclick="toggleModal()"
               class="footer__social--link link__hover-effect link__hover-effect--white"
             >
               Contact
             </a>
             <a
-              href="./Assets/Resume.pdf" target="_blank"
+              href="./Assets/Resume.pdf"
+              target="_blank"
               class="footer__social--link link__hover-effect link__hover-effect--white"
             >
               Resume
             </a>
           </div>
           <div class="footer__copyright">
-            Copyright &copy; Edwin Alexander Vargas
+            Copyright &copy; 2026 Edwin Alexander Vargas
           </div>
         </div>
       </div>
