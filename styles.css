@@ -184,6 +184,7 @@ nav,
     color: #242424;
 }
 
+
 /* Landing Page  */
 
 #landing-page {
@@ -367,11 +368,12 @@ nav {
 
 .modal__languages {
   display: flex;
-  flex: wrap;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .modal__language {
-  width: 25%;
+  width: calc(33% - 16px);
   padding: 16px;
   position: relative;
   display: flex;
@@ -503,6 +505,7 @@ nav {
 }
 
 .project__img {
+  display: block;
   width: 100%;
   transition: all 300ms ease;
 }
@@ -582,11 +585,12 @@ nav {
   margin: 16px 0;
 }
 
+
 /* footer */
 
 .footer__logo-img {
   height: 100px;
-  width: 100%;
+  width: 100px;
   border-radius: 50%;
   border: 3px solid gray;
 }
