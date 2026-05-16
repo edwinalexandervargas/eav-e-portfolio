@@ -2,7 +2,7 @@
 
 Personal portfolio showcasing my projects and skills as a frontend developer.
 
-🔗 [Live Demo](https://edwin-portfolio.vercel.app)
+🔗 [Live Demo](https://edwin-portfolio-theta.vercel.app/)
 
 ## Built With
 - HTML
