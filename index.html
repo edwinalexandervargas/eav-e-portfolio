@@ -2,447 +2,139 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edwin Alexander Vargas | Frontend Developer</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script
-      src="https://kit.fontawesome.com/decd14f2d7.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="index.js"></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edwin Alexander Vargas · Frontend Developer (React &amp; TypeScript)</title>
+    <meta
+      name="description"
+      content="Edwin Alexander Vargas is a frontend developer in the Los Angeles area building fast, accessible React and TypeScript interfaces. See projects, skills and how to get in touch."
+    />
+    <!-- TODO: swap for the custom domain if/when the .dev domain is live -->
+    <link rel="canonical" href="https://edwin-portfolio-theta.vercel.app/" />
+    <meta name="theme-color" content="#0a0a0b" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Edwin Alexander Vargas" />
+    <meta property="og:title" content="Edwin Alexander Vargas · Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Frontend developer building fast, accessible React interfaces."
+    />
+    <meta property="og:url" content="https://edwin-portfolio-theta.vercel.app/" />
+    <meta property="og:image" content="https://edwin-portfolio-theta.vercel.app/Assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Edwin Alexander Vargas, frontend developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Edwin Alexander Vargas · Frontend Developer" />
+    <meta
+      name="twitter:description"
+      content="Frontend developer building fast, accessible React interfaces."
+    />
+    <meta name="twitter:image" content="https://edwin-portfolio-theta.vercel.app/Assets/og-image.png" />
+
+    <link rel="icon" href="/Assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/Assets/apple-touch-icon.png" />
+
+    <!-- Set theme before first paint: saved choice, else system preference, else dark -->
+    <script>
       (function () {
-        emailjs.init({
-          publicKey: "dbLyKxuFSb-dZwgDR",
-        });
+        var d = document.documentElement;
+        d.classList.add("js");
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          if (t === "light") d.dataset.theme = "light";
+        } catch (e) {}
       })();
     </script>
+
+    <link rel="preload" href="/Assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/Assets/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/Assets/css/main.css" />
+    <script type="module" src="/Assets/js/main.js"></script>
   </head>
   <body>
-    <section id="landing-page" onmousemove="moveBackground(event)">
-      <nav>
-        <figure>
-          <img id="personal-logo" src="./Assets/Profile.jpg" alt="" />
-        </figure>
-        <ul class="nav__link--list">
-          <li class="nav__link" onclick="toggleModal()">
-            <a
-              href="#"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              >About</a
-            >
-          </li>
-          <li class="nav__link">
-            <a
-              href="#projects"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              >Projects</a
-            >
-          </li>
-          <li class="nav__link" onclick="toggleModal()">
-            <a
-              href="#"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              >Contact</a
-            >
-          </li>
-          <li class="nav__link click" onclick="toggleContrast()">
-            <a
-              href="#"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
-              ><i class="fas fa-adjust"></i>
+    <!-- Icon sprite -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+      <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm-1 1 9 7 9-7"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></g></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    </svg>
+
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-100 focus:rounded-pill focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-on-accent"
+      >Skip to content</a
+    >
+
+    <header class="sticky top-0 z-50 border-b border-border/60 bg-bg/75 backdrop-blur-md supports-[backdrop-filter]:bg-bg/60">
+      <nav class="container-page flex h-16 items-center justify-between gap-4" aria-label="Main">
+        <a href="#top" class="font-display text-base font-semibold tracking-tight text-fg">
+          Edwin Vargas<span class="text-accent">.</span>
+        </a>
+
+        <ul class="hidden items-center gap-1 md:flex">
+          <li><a href="#projects" class="rounded-pill px-3 py-2 text-sm text-muted transition-colors hover:text-fg">Projects</a></li>
+          <li><a href="#skills" class="rounded-pill px-3 py-2 text-sm text-muted transition-colors hover:text-fg">Skills</a></li>
+          <li><a href="#about" class="rounded-pill px-3 py-2 text-sm text-muted transition-colors hover:text-fg">About</a></li>
+          <li><a href="#contact" class="rounded-pill px-3 py-2 text-sm text-muted transition-colors hover:text-fg">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            data-theme-toggle
+            class="grid size-10 place-items-center rounded-pill text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+            aria-label="Switch to light theme"
+          >
+            <svg class="size-5" aria-hidden="true"><use href="#i-sun" data-theme-icon /></svg>
+          </button>
+          <a href="/Assets/Resume.pdf" download="Edwin-Alexander-Vargas-Resume.pdf" class="btn-secondary hidden px-4 py-2 sm:inline-flex">
+            <svg class="size-4" aria-hidden="true"><use href="#i-download" /></svg>
+            Resume
+          </a>
+          <button
+            type="button"
+            data-menu-toggle
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            class="grid size-10 place-items-center rounded-pill text-muted transition-colors hover:bg-surface-2 hover:text-fg md:hidden"
+          >
+            <span class="sr-only">Menu</span>
+            <svg class="size-5" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-t border-border/60 md:hidden" data-menu>
+        <ul class="container-page flex flex-col py-3">
+          <li><a href="#projects" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Projects</a></li>
+          <li><a href="#skills" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Skills</a></li>
+          <li><a href="#about" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">About</a></li>
+          <li><a href="#contact" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Contact</a></li>
+          <li class="pt-2 sm:hidden">
+            <a href="/Assets/Resume.pdf" download="Edwin-Alexander-Vargas-Resume.pdf" class="btn-secondary w-full">
+              <svg class="size-4" aria-hidden="true"><use href="#i-download" /></svg>
+              Download resume
             </a>
           </li>
         </ul>
-      </nav>
-      <header class="header">
-        <div class="header__content">
-          <h1 class="title">Hey</h1>
-          <h1 class="title blue">I'm Edwin.</h1>
-          <p class="header__para">
-            I'm a <b class="blue">Frontend Developer</b> passionate about
-            building real world web applications with great user experiences.
-            <br />
-            Here's a bit more
-            <b class="blue click" onclick="toggleModal()">about me</b>.
-          </p>
-          <div class="social__list">
-            <a
-              href="https://www.linkedin.com/in/edwin-alexander-vargas-613391263/"
-              target="_blank"
-              class="social__link click"
-            >
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://github.com/edwinalexandervargas"
-              target="_blank"
-              class="social__link click"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a
-              href="./Assets/Resume.pdf"
-              target="_blank"
-              class="social__link click"
-            >
-              <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
-        </div>
-      </header>
-      <a href="#">
-        <button class="mail__btn click" onclick="toggleModal()">
-          <i class="fa-solid fa-envelope"></i>
-        </button>
-      </a>
-      <a href="#projects" class="scroll">
-        <div class="scroll__icon click"></div>
-      </a>
-      <div class="modal">
-        <div class="modal__half modal__about">
-          <h3 class="modal__title modal__title--about">
-            Here's a bit about me.
-          </h3>
-          <h4 class="modal__sub-title modal__sub-title--about">
-            Frontend Developer
-          </h4>
-          <p class="modal__para">
-            I'm a <b class="blue">self-taught frontend developer</b> passionate
-            about building real world web applications. I'm currently seeking my
-            first role in <b class="blue">software engineering.</b>
-          </p>
-          <div class="modal__languages">
-            <figure class="modal__language">
-              <img class="modal__language--img" src="Assets/html.svg" alt="" />
-              <span class="language__name">HTML</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
-                alt=""
-              />
-              <span class="language__name">CSS</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
-                alt=""
-              />
-              <span class="language__name">JavaScript</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png"
-                alt=""
-              />
-              <span class="language__name">React</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.iconscout.com/icon/free/png-256/firebase-3521427-2944871.png"
-                alt=""
-              />
-              <span class="language__name">Firebase</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.iconscout.com/icon/free/png-256/git-18-1175219.png"
-                alt=""
-              />
-              <span class="language__name">Git</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg"
-                alt=""
-              />
-              <span class="language__name">Three.js</span>
-            </figure>
-            <figure class="modal__language">
-              <img
-                class="modal__language--img"
-                src="https://cdn.iconscout.com/icon/free/png-256/tailwind-css-5285308-4406745.png"
-                alt=""
-              />
-              <span class="language__name">Tailwind</span>
-            </figure>
-          </div>
-        </div>
-        <div class="modal__half modal__contact">
-          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
-          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
-          <h4 class="modal__sub-title modal__sub-title--contact">
-            I'm currently open to new opportunities.
-          </h4>
-          <form id="contact__form" onsubmit="contact(event)">
-            <div class="form__item">
-              <label class="form__item--label" for="name">Name</label>
-              <input class="input" name="user_name" type="text" required />
-            </div>
-            <div class="form__item">
-              <label class="form__item--label" for="name">Email</label>
-              <input class="input" name="user_email" type="email" required />
-            </div>
-            <div class="form__item">
-              <label class="form__item--label" for="name">Message</label>
-              <textarea class="input" name="message" type="text"></textarea>
-            </div>
-            <button id="contact__submit" class="form__submit">
-              Send it my way
-            </button>
-          </form>
-          <div class="modal__overlay modal__overlay--loading">
-            <i class="fas fa-spinner"></i>
-          </div>
-          <div class="modal__overlay modal__overlay--success">
-            Thanks for the message! Look forward to speaking to you soon.
-          </div>
-        </div>
       </div>
-      <img src="./Assets/circle.svg" class="shape shape--0" />
-      <img src="./Assets/circle.svg" class="shape shape--1" />
-      <img src="./Assets/squiggly.svg" class="shape shape--2" />
-      <img src="./Assets/circle.svg" class="shape shape--3" />
-      <img src="./Assets/triangle.svg" class="shape shape--4" />
-      <img src="./Assets/circle.svg" class="shape shape--5" />
-      <img src="./Assets/squiggly.svg" class="shape shape--6" />
-      <img src="./Assets/circle.svg" class="shape shape--7" />
-      <img src="./Assets/circle.svg" class="shape shape--8" />
-    </section>
-    <section id="projects">
-      <div class="container">
-        <div class="row">
-          <h1 class="section__title">
-            Here are some of my <span class="blue">projects</span>
-          </h1>
-          <ul class="project__list">
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./Assets/apple-clone.png"
-                  class="project__img"
-                  alt=""
-                />
-                <div class="project__wrapper--bg"></div>
-                <div class="project__description">
-                  <h3 class="project__description--title">Apple Clone</h3>
-                  <h4 class="project__description--sub-title">
-                    React, Vite, Tailwind CSS, GSAP, Three.js, React Three
-                    Fiber, Zustand
-                  </h4>
-                  <p class="project__description--para">
-                    A clone of Apple's MacBook Pro product page with interactive
-                    3D models, scroll-driven animations, and video texture
-                    manipulation.
-                  </p>
-                  <div class="project__description--link">
-                    <a
-                      href="https://github.com/edwinalexandervargas/Apple-Clone"
-                      class="project__description--link"
-                    >
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a
-                      href="https://apple-clone-three-eta.vercel.app/"
-                      class="project__description--link"
-                    >
-                      <i class="fas fa-link"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./Assets/spotify-clone.png"
-                  class="project__img"
-                  alt=""
-                />
-                <div class="project__wrapper--bg"></div>
-                <div class="project__description">
-                  <h3 class="project__description--title">Spotify Clone</h3>
-                  <h4 class="project__description--sub-title">
-                    React, Vite, Tailwind CSS, React Router DOM, Context API
-                  </h4>
-                  <p class="project__description--para">
-                    A Spotify-inspired music player with a fully functional
-                    audio player, real-time seek bar, album browsing, and
-                    dynamic routing.
-                  </p>
-                  <div class="project__description--link">
-                    <a
-                      href="https://github.com/edwinalexandervargas/spotify-clone"
-                      class="project__description--link"
-                    >
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a
-                      href="https://spotify-clone-omega-neon-91.vercel.app/"
-                      class="project__description--link"
-                    >
-                      <i class="fas fa-link"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project__wrapper">
-                <img src="./Assets/movie-app.png" class="project__img" alt="" />
-                <div class="project__wrapper--bg"></div>
-                <div class="project__description">
-                  <h3 class="project__description--title">React Movie App</h3>
-                  <h4 class="project__description--sub-title">
-                    React, Vite, Tailwind CSS, React Router DOM, Axios, OMDB API
-                  </h4>
-                  <p class="project__description--para">
-                    A movie browsing app with search, filtering, skeleton
-                    loading, search history, and a full detail page with similar
-                    genre recommendations.
-                  </p>
-                  <div class="project__description--link">
-                    <a
-                      href="https://github.com/edwinalexandervargas/react-movie-app"
-                      class="project__description--link"
-                    >
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a
-                      href="https://movies-app-phi-lime-58.vercel.app/"
-                      class="project__description--link"
-                    >
-                      <i class="fas fa-link"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./Assets/AP-Plumbing.png"
-                  class="project__img"
-                  alt=""
-                />
-                <div class="project__wrapper--bg"></div>
-                <div class="project__description">
-                  <h3 class="project__description--title">AP Plumbing</h3>
-                  <h4 class="project__description--sub-title">
-                    React, Firebase, Firestore, EmailJS
-                  </h4>
-                  <p class="project__description--para">
-                    A professional plumbing business website with a customer
-                    review system, admin authentication, and contact form.
-                  </p>
-                  <div class="project__description--link">
-                    <a
-                      href="https://github.com/edwinalexandervargas/ap-plumbing"
-                      class="project__description--link"
-                    >
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a
-                      href="https://applumbingrooter.com"
-                      class="project__description--link"
-                    >
-                      <i class="fas fa-link"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project__wrapper">
-                <img
-                  src="./Assets/netflix-clone-hero-page.png"
-                  class="project__img"
-                  alt=""
-                />
-                <div class="project__wrapper--bg"></div>
-                <div class="project__description">
-                  <h3 class="project__description--title">Netflix Clone</h3>
-                  <h4 class="project__description--sub-title">
-                    React, Vite, React Router, TMDB API, Firebase
-                  </h4>
-                  <p class="project__description--para">
-                    A Netflix-inspired movie browsing app with horizontally
-                    scrollable category rows, live movie data from the TMDB API,
-                    and user authentication.
-                  </p>
-                  <div class="project__description--link">
-                    <a
-                      href="https://github.com/edwinalexandervargas/netflix-clone"
-                      class="project__description--link"
-                    >
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a
-                      href="https://netflix-clone-flax-ten.vercel.app/"
-                      class="project__description--link"
-                    >
-                      <i class="fas fa-link"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <div class="container">
-        <div class="row footer__row">
-          <figure>
-            <img class="footer__logo-img" src="./Assets/Profile.jpg" alt="" />
-          </figure>
-          <div class="footer__social--list">
-            <a
-              href="https://github.com/edwinalexandervargas"
-              target="_blank"
-              class="footer__social--link link__hover-effect link__hover-effect--white"
-            >
-              Github
-            </a>
-            <a
-              href="https://www.linkedin.com/in/edwin-alexander-vargas-613391263/"
-              target="_blank"
-              class="footer__social--link link__hover-effect link__hover-effect--white"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="#"
-              onclick="toggleModal()"
-              class="footer__social--link link__hover-effect link__hover-effect--white"
-            >
-              Contact
-            </a>
-            <a
-              href="./Assets/Resume.pdf"
-              target="_blank"
-              class="footer__social--link link__hover-effect link__hover-effect--white"
-            >
-              Resume
-            </a>
-          </div>
-          <div class="footer__copyright">
-            Copyright &copy; 2026 Edwin Alexander Vargas
-          </div>
-        </div>
-      </div>
-    </footer>
+    </header>
+
+    <main id="main" tabindex="-1" class="outline-none">
+
+
+
+
+    </main>
+
   </body>
 </html>
