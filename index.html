@@ -78,8 +78,16 @@
 
     <header class="sticky top-0 z-50 border-b border-border/60 bg-bg/75 backdrop-blur-md supports-[backdrop-filter]:bg-bg/60">
       <nav class="container-page flex h-16 items-center justify-between gap-4" aria-label="Main">
-        <a href="#top" class="font-display text-base font-semibold tracking-tight text-fg">
-          Edwin Vargas<span class="text-accent">.</span>
+        <a href="#top" class="-m-1 flex items-center rounded-md p-1 text-fg">
+          <span class="sr-only">Edwin Alexander Vargas, back to top</span>
+          <!-- EV logo (from Figma). Colors follow the theme tokens. -->
+          <svg viewBox="8 8 44 16" width="66" height="24" aria-hidden="true">
+            <path d="M8.5 16L14.125 10.375H17.6605L12.0355 16L17.6605 21.625H14.125L8.5 16Z" fill="var(--c-muted)" />
+            <path d="M19.5535 8.5H28.5535V11H22.0535V14.75H27.0535V17.25H22.0535V21H28.5535V23.5H19.5535V8.5Z" fill="currentColor" />
+            <path d="M30.4465 8.5H33.0817L35.4465 15.5943V23.5L30.4465 8.5Z" fill="var(--c-accent)" />
+            <path d="M35.4465 23.5V15.5943L37.8113 8.5H40.4465L35.4465 23.5Z" fill="var(--c-accent)" />
+            <path d="M51.5 16L45.875 10.375H42.3395L47.9645 16L42.3395 21.625H45.875L51.5 16Z" fill="var(--c-muted)" />
+          </svg>
         </a>
 
         <ul class="hidden items-center gap-1 md:flex">
@@ -175,7 +183,7 @@
               </a>
             </li>
             <li class="inline-flex items-center gap-2">
-              <svg class="size-4" aria-hidden="true"><use href="#i-pin" /></svg>Los Angeles area
+              <svg class="size-4" aria-hidden="true"><use href="#i-pin" /></svg>Los Angeles
             </li>
           </ul>
         </div>
