@@ -70,7 +70,7 @@ const form = document.querySelector("[data-contact-form]");
 const status = form?.querySelector("[data-form-status]");
 const submit = form?.querySelector("[data-submit]");
 const EMAILJS = { publicKey: "dbLyKxuFSb-dZwgDR", service: "service_yep9wjg", template: "template_7lhjvjq" };
-const EMAIL = "edwinalexandervargas07@gmail.com";
+const EMAIL = "edwinalexandervargas.dev@gmail.com";
 
 function loadEmailJS() {
   if (window.emailjs) return Promise.resolve(window.emailjs);
