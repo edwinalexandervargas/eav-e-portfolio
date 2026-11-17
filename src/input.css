@@ -123,6 +123,11 @@
     background: var(--c-accent);
     color: var(--c-on-accent);
   }
+  /* sections focused by in-page links shouldn't show a ring */
+  [tabindex="-1"]:focus,
+  [tabindex="-1"]:focus-visible {
+    outline: none;
+  }
   :focus-visible {
     outline: 2px solid var(--c-accent);
     outline-offset: 3px;
@@ -236,11 +241,11 @@
   background: var(--c-surface);
   box-shadow: var(--shadow-card);
 }
-.orbit-tile img {
+.orbit-logo {
   width: 56%;
   height: 56%;
 }
-:root:not([data-theme="light"]) .orbit-tile img.invert-dark {
+:root:not([data-theme="light"]) .orbit-logo.invert-dark {
   filter: invert(1);
 }
 .orbit-label {
@@ -319,6 +324,11 @@
 /* ---------- Mobile menu: smooth open/close + hamburger to X ---------- */
 @layer components {
   .mobile-menu {
+    /* floats over the page so opening/closing never shifts the content */
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    background-color: var(--c-bg);
     display: grid;
     grid-template-rows: 0fr;
     visibility: hidden;
@@ -328,6 +338,8 @@
   }
   .mobile-menu[data-open] {
     grid-template-rows: 1fr;
+    border-bottom: 1px solid var(--c-border);
+    box-shadow: 0 16px 32px -16px rgb(0 0 0 / 0.45);
     visibility: visible;
     transition:
       grid-template-rows 380ms var(--ease-out-soft),

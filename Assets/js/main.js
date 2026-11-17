@@ -236,6 +236,26 @@ if (rocket) {
   });
 }
 
+/* ---------- Start at the top on refresh; keep in-page links out of the URL ---------- */
+// Browsers restore the old scroll position on reload by default; start fresh at the top instead.
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const id = link.getAttribute("href").slice(1);
+  const target = id && document.getElementById(id);
+  if (!target) return;
+  e.preventDefault();
+  const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
+  // move keyboard focus to the section, like a normal anchor jump would
+  if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
+  // clear any #hash so a refresh doesn't jump back down
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+});
+
 /* ---------- Footer year ---------- */
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
