@@ -110,6 +110,15 @@ form?.addEventListener("submit", async (e) => {
   }
 });
 
+/* ---------- Skills logo ring: pause / play ---------- */
+const orbit = document.querySelector("[data-orbit]");
+const orbitBtn = orbit?.querySelector("[data-orbit-toggle]");
+orbitBtn?.addEventListener("click", () => {
+  const paused = orbit.toggleAttribute("data-paused");
+  orbitBtn.setAttribute("aria-pressed", String(paused));
+  orbitBtn.textContent = paused ? "Play animation" : "Pause animation";
+});
+
 /* ---------- Footer year ---------- */
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());

@@ -180,6 +180,94 @@
   mask-image: linear-gradient(to bottom, black 55%, transparent);
 }
 
+/* ---------- Skills logo ring ---------- */
+@property --spin {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+.orbit {
+  --r: clamp(140px, 36vw, 380px);
+  --size: clamp(42px, 7vw, 68px);
+  perspective: 1200px;
+  overflow-x: clip;
+  padding-block: 8px;
+}
+.orbit-ring {
+  position: relative;
+  height: calc(var(--size) + 40px + var(--r) * 0.55);
+  transform-style: preserve-3d;
+  transform: rotateX(-14deg);
+  animation: orbit-spin 36s linear infinite;
+}
+.orbit:hover .orbit-ring,
+[data-orbit][data-paused] .orbit-ring {
+  animation-play-state: paused;
+}
+@keyframes orbit-spin {
+  to { --spin: 360deg; }
+}
+.orbit-item {
+  --a: calc(360deg / var(--n) * var(--i) + var(--spin));
+  position: absolute;
+  top: calc(var(--r) * 0.24);
+  left: 50%;
+  width: calc(var(--size) + 24px);
+  margin-left: calc((var(--size) + 24px) / -2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  /* place on the circle, then turn back to face the viewer */
+  transform: rotateY(var(--a)) translateZ(var(--r)) rotateY(calc(-1 * var(--a)));
+  /* fade items as they travel behind */
+  opacity: calc(0.22 + 0.78 * (cos(var(--a)) + 1) / 2);
+}
+.orbit-tile {
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 1rem;
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-card);
+}
+.orbit-tile img {
+  width: 56%;
+  height: 56%;
+}
+:root:not([data-theme="light"]) .orbit-tile img.invert-dark {
+  filter: invert(1);
+}
+.orbit-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--c-fg);
+  white-space: nowrap;
+  /* only the logo facing the viewer shows its name */
+  opacity: round(down, clamp(0, (cos(var(--a)) - 0.8) * 50, 1), 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring {
+    height: auto;
+    transform: none;
+    animation: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .orbit-item {
+    position: static;
+    margin: 0;
+    transform: none;
+    opacity: 1;
+  }
+  .orbit-label { opacity: 1; color: var(--c-muted); }
+  .orbit-pause { display: none; }
+}
+
 /* Scroll reveal (only when JS is running, so content is never hidden without it) */
 .js .reveal {
   opacity: 0;
