@@ -2,7 +2,9 @@
 
 /* Scan only the real source files. */
 @source not "../node_modules";
-@source not "../Assets";
+@source not "../Assets/css";
+@source not "../Assets/fonts";
+@source not "../Assets/img";
 
 /* ---------- Fonts (self-hosted, preloaded in <head>) ---------- */
 @font-face {
@@ -33,6 +35,7 @@
   --c-accent-strong: #a5b4fc;
   --c-on-accent: #0a0a0b;
   --c-success: #34d399;
+  --c-danger: #f87171;
   --c-grid: rgb(255 255 255 / 0.05);
   --c-glow: rgb(129 140 248 / 0.16);
   --shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.5);
@@ -50,6 +53,7 @@
   --c-accent-strong: #4338ca;
   --c-on-accent: #ffffff;
   --c-success: #047857;
+  --c-danger: #b91c1c;
   --c-grid: rgb(0 0 0 / 0.05);
   --c-glow: rgb(79 70 229 / 0.10);
   --shadow-card: 0 1px 2px rgb(16 16 20 / 0.06), 0 8px 24px -12px rgb(16 16 20 / 0.12);
@@ -68,6 +72,7 @@
   --color-accent-strong: var(--c-accent-strong);
   --color-on-accent: var(--c-on-accent);
   --color-success: var(--c-success);
+  --color-danger: var(--c-danger);
 
   --shadow-card: var(--shadow-card);
   --shadow-card-hover: var(--shadow-card-hover);

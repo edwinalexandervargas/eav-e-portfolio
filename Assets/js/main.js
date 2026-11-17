@@ -85,7 +85,7 @@ function loadEmailJS() {
 
 function setStatus(message, tone) {
   status.textContent = message;
-  status.className = `min-h-6 text-sm ${tone === "error" ? "text-red-500" : tone === "success" ? "text-success" : "text-muted"}`;
+  status.className = `min-h-6 text-sm ${tone === "error" ? "text-danger" : tone === "success" ? "text-success" : "text-muted"}`;
 }
 
 form?.addEventListener("submit", async (e) => {
