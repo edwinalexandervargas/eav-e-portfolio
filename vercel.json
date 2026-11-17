@@ -1,0 +1,12 @@
+{
+  "headers": [
+    {
+      "source": "/Assets/(fonts|img)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/Assets/(css|js)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }]
+    }
+  ]
+}
