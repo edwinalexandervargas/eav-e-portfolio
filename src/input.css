@@ -49,7 +49,7 @@
   --c-accent: #4f46e5;
   --c-accent-strong: #4338ca;
   --c-on-accent: #ffffff;
-  --c-success: #059669;
+  --c-success: #047857;
   --c-grid: rgb(0 0 0 / 0.05);
   --c-glow: rgb(79 70 229 / 0.10);
   --shadow-card: 0 1px 2px rgb(16 16 20 / 0.06), 0 8px 24px -12px rgb(16 16 20 / 0.12);
@@ -161,7 +161,7 @@
 }
 /* Visible "fill me in" marker for missing content. Remove all before merging. */
 @utility todo {
-  @apply rounded-md border border-dashed border-amber-500/70 bg-amber-500/10 px-1.5 py-0.5 font-mono text-xs text-amber-700;
+  @apply rounded-md border border-dashed border-amber-500/70 bg-amber-500/10 px-1.5 py-0.5 font-mono text-xs text-amber-800;
 }
 :root:not([data-theme="light"]) .todo { color: var(--color-amber-300); }
 
