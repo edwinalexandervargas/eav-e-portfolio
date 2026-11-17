@@ -103,7 +103,8 @@ form?.addEventListener("submit", async (e) => {
     await emailjs.sendForm(EMAILJS.service, EMAILJS.template, form, { publicKey: EMAILJS.publicKey });
     form.reset();
     setStatus("Thanks! Your message is on its way. I'll get back to you soon.", "success");
-  } catch {
+  } catch (err) {
+    console.error("Contact form failed:", err?.status, err?.text ?? err);
     setStatus(`Something went wrong. Please email me directly at ${EMAIL}.`, "error");
   } finally {
     submit.disabled = false;
