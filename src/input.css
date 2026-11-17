@@ -229,7 +229,7 @@
   /* place on the circle, then turn back to face the viewer */
   transform: rotateY(var(--a)) translateZ(var(--r)) rotateY(calc(-1 * var(--a)));
   /* fade items as they travel behind */
-  opacity: calc(0.22 + 0.78 * (cos(var(--a)) + 1) / 2);
+  opacity: calc(0.6 + 0.4 * (cos(var(--a)) + 1) / 2);
 }
 .orbit-tile {
   display: grid;
