@@ -110,14 +110,69 @@ form?.addEventListener("submit", async (e) => {
   }
 });
 
-/* ---------- Skills logo ring: pause / play ---------- */
+/* ---------- Skills logo ring: spin that eases in and out ---------- */
 const orbit = document.querySelector("[data-orbit]");
+const ring = orbit?.querySelector(".orbit-ring");
 const orbitBtn = orbit?.querySelector("[data-orbit-toggle]");
-orbitBtn?.addEventListener("click", () => {
-  const paused = orbit.toggleAttribute("data-paused");
-  orbitBtn.setAttribute("aria-pressed", String(paused));
-  orbitBtn.textContent = paused ? "Play animation" : "Pause animation";
-});
+const orbitIcon = orbit?.querySelector("[data-orbit-icon]");
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+if (orbit && ring && !reduceMotion.matches) {
+  const SPEED = 10; // degrees per second (one turn every 36s)
+  const EASE = 0.45; // seconds to roughly settle when slowing down or speeding up
+  let angle = 0;
+  let velocity = SPEED;
+  let pausedByUser = false;
+  let hovering = false;
+  let onScreen = true;
+  let last = performance.now();
+  let frame = 0;
+
+  const tick = (now) => {
+    const dt = Math.min((now - last) / 1000, 0.1);
+    last = now;
+    const target = pausedByUser || hovering ? 0 : SPEED;
+    velocity += (target - velocity) * (1 - Math.exp(-dt / EASE));
+    if (Math.abs(velocity) < 0.01 && target === 0) velocity = 0;
+    angle = (angle + velocity * dt) % 360;
+    ring.style.setProperty("--spin", `${angle}deg`);
+    frame = velocity === 0 && target === 0 ? 0 : requestAnimationFrame(tick);
+  };
+  const run = () => {
+    if (!frame && onScreen) {
+      last = performance.now();
+      frame = requestAnimationFrame(tick);
+    }
+  };
+
+  orbit.querySelector(".orbit").addEventListener("pointerenter", (e) => {
+    if (e.pointerType === "mouse") {
+      hovering = true;
+      run();
+    }
+  });
+  orbit.querySelector(".orbit").addEventListener("pointerleave", () => {
+    hovering = false;
+    run();
+  });
+
+  orbitBtn?.addEventListener("click", () => {
+    pausedByUser = !pausedByUser;
+    orbitBtn.setAttribute("aria-pressed", String(pausedByUser));
+    orbitBtn.setAttribute("aria-label", pausedByUser ? "Play logo animation" : "Pause logo animation");
+    orbitIcon?.setAttribute("href", pausedByUser ? "#i-play" : "#i-pause");
+    run();
+  });
+
+  // Don't spend frames while the ring is off screen
+  new IntersectionObserver(([entry]) => {
+    onScreen = entry.isIntersecting;
+    if (!onScreen) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    } else run();
+  }).observe(orbit);
+}
 
 /* ---------- Footer year ---------- */
 const year = document.querySelector("[data-year]");

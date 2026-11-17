@@ -191,7 +191,7 @@
   --size: clamp(42px, 7vw, 68px);
   perspective: 1200px;
   overflow-x: clip;
-  padding-block: 8px;
+  padding-block: 8px 28px;
 }
 .orbit-ring {
   position: relative;
@@ -200,9 +200,12 @@
   transform: rotateX(-14deg);
   animation: orbit-spin 36s linear infinite;
 }
-.orbit:hover .orbit-ring,
-[data-orbit][data-paused] .orbit-ring {
+/* Without JS: CSS spin that pauses on hover. With JS, main.js drives --spin so it can ease to a stop. */
+.orbit:hover .orbit-ring {
   animation-play-state: paused;
+}
+.js .orbit-ring {
+  animation: none;
 }
 @keyframes orbit-spin {
   to { --spin: 360deg; }
