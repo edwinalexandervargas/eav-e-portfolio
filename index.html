@@ -64,7 +64,6 @@
       <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></g></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
       <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a.5.5 0 0 0 .77.42l10.2-6.5a.5.5 0 0 0 0-.84L8.77 5.08A.5.5 0 0 0 8 5.5Z"/></symbol>
       <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
@@ -118,24 +117,30 @@
             class="grid size-10 place-items-center rounded-pill text-muted transition-colors hover:bg-surface-2 hover:text-fg md:hidden"
           >
             <span class="sr-only">Menu</span>
-            <svg class="size-5" aria-hidden="true"><use href="#i-menu" /></svg>
+            <svg class="menu-icon size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path class="menu-line menu-line-top" d="M4 7h16" />
+              <path class="menu-line menu-line-mid" d="M4 12h16" />
+              <path class="menu-line menu-line-bot" d="M4 17h16" />
+            </svg>
           </button>
         </div>
       </nav>
 
-      <div id="mobile-menu" class="hidden border-t border-border/60 md:hidden" data-menu>
-        <ul class="container-page flex flex-col py-3">
-          <li><a href="#projects" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Projects</a></li>
-          <li><a href="#skills" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Skills</a></li>
-          <li><a href="#about" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">About</a></li>
-          <li><a href="#contact" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Contact</a></li>
-          <li class="pt-2 sm:hidden">
-            <a href="/Assets/Resume.pdf" download="Edwin-Alexander-Vargas-Resume.pdf" class="btn-secondary w-full">
-              <svg class="size-4" aria-hidden="true"><use href="#i-download" /></svg>
-              Download resume
-            </a>
-          </li>
-        </ul>
+      <div id="mobile-menu" class="mobile-menu md:hidden" data-menu>
+        <div class="mobile-menu-inner">
+          <ul class="container-page flex flex-col border-t border-border/60 py-3">
+            <li style="--i: 0"><a href="#projects" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Projects</a></li>
+            <li style="--i: 1"><a href="#skills" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Skills</a></li>
+            <li style="--i: 2"><a href="#about" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">About</a></li>
+            <li style="--i: 3"><a href="#contact" class="block rounded-lg px-2 py-3 text-fg hover:bg-surface-2">Contact</a></li>
+            <li style="--i: 4" class="pt-2 sm:hidden">
+              <a href="/Assets/Resume.pdf" download="Edwin-Alexander-Vargas-Resume.pdf" class="btn-secondary w-full">
+                <svg class="size-4" aria-hidden="true"><use href="#i-download" /></svg>
+                Download resume
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 

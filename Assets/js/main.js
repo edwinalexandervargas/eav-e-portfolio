@@ -32,8 +32,11 @@ const menu = document.querySelector("[data-menu]");
 
 function setMenu(open) {
   menuBtn?.setAttribute("aria-expanded", String(open));
-  menu?.classList.toggle("hidden", !open);
+  menuBtn?.querySelector(".sr-only")?.replaceChildren(open ? "Close menu" : "Menu");
+  menu?.toggleAttribute("data-open", open);
 }
+// close the menu if the window grows past the mobile breakpoint
+matchMedia("(min-width: 48rem)").addEventListener("change", (e) => e.matches && setMenu(false));
 
 menuBtn?.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
 menu?.addEventListener("click", (e) => {

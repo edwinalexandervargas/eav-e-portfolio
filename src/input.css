@@ -316,6 +316,54 @@
   .rocket-btn.is-landing .rocket-ship { animation: none; }
 }
 
+/* ---------- Mobile menu: smooth open/close + hamburger to X ---------- */
+@layer components {
+  .mobile-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows 380ms var(--ease-out-soft),
+      visibility 0s linear 380ms;
+  }
+  .mobile-menu[data-open] {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition:
+      grid-template-rows 380ms var(--ease-out-soft),
+      visibility 0s;
+  }
+  .mobile-menu-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .mobile-menu li {
+    opacity: 0;
+    translate: 0 -6px;
+    transition:
+      opacity 200ms ease,
+      translate 200ms ease;
+  }
+  .mobile-menu[data-open] li {
+    opacity: 1;
+    translate: 0 0;
+    transition:
+      opacity 320ms var(--ease-out-soft) calc(80ms + var(--i) * 45ms),
+      translate 320ms var(--ease-out-soft) calc(80ms + var(--i) * 45ms);
+  }
+}
+.menu-line {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    translate 300ms var(--ease-out-soft),
+    rotate 300ms var(--ease-out-soft),
+    opacity 200ms ease;
+}
+[aria-expanded="true"] .menu-line-top { translate: 0 5px; rotate: 45deg; }
+[aria-expanded="true"] .menu-line-mid { opacity: 0; }
+[aria-expanded="true"] .menu-line-bot { translate: 0 -5px; rotate: -45deg; }
+
 /* Scroll reveal (only when JS is running, so content is never hidden without it) */
 .js .reveal {
   opacity: 0;
