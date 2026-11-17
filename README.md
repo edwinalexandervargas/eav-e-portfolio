@@ -29,4 +29,6 @@ npm run dev     # watch src/input.css -> Assets/css/main.css
 npm run build   # minified build
 ```
 
-Serve the folder with any static server (for example `npx serve .`). Vercel runs `npm run build` on deploy; the compiled CSS is also committed, so the site works without a build step.
+Serve the folder with any static server (for example VS Code Live Server or `npx serve .`).
+
+On deploy, Vercel runs `npm run build`, which compiles the CSS and copies `index.html` and `Assets/` into `dist/` (the folder Vercel serves). `dist/` is git-ignored.
