@@ -1,0 +1,14 @@
+{
+  "name": "eav-e-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Edwin Alexander Vargas — frontend developer portfolio",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./Assets/css/main.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./Assets/css/main.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}
