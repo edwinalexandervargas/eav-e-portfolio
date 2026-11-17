@@ -271,6 +271,51 @@
   .orbit-pause { display: none; }
 }
 
+/* ---------- Rocket scroll button ---------- */
+.rocket {
+  display: grid;
+  place-items: center;
+  transition: rotate 400ms var(--ease-out-soft);
+}
+.rocket-btn[data-dir="down"] .rocket { rotate: 180deg; }
+/* turn instantly while the ship is out of view, so it lands already facing the new way */
+.rocket-btn.is-landing .rocket { transition: none; }
+.rocket-flame {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+}
+.rocket-btn:hover .rocket-flame,
+.rocket-btn:focus-visible .rocket-flame { opacity: 0.55; }
+.rocket-btn.is-launching .rocket-ship {
+  animation: rocket-launch 520ms cubic-bezier(0.55, 0, 0.85, 0.35) forwards;
+}
+.rocket-btn.is-launching .rocket-flame {
+  opacity: 1;
+  animation: rocket-flame 90ms ease-in-out infinite alternate;
+}
+.rocket-btn.is-landing .rocket-ship {
+  animation: rocket-land 480ms var(--ease-out-soft) both;
+}
+@keyframes rocket-launch {
+  0% { translate: 0 0; }
+  25% { translate: 0 3px; }
+  100% { translate: 0 -56px; }
+}
+@keyframes rocket-land {
+  from { translate: 0 40px; opacity: 0; }
+  to { translate: 0 0; opacity: 1; }
+}
+@keyframes rocket-flame {
+  from { scale: 1 0.8; }
+  to { scale: 1 1.35; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rocket { transition: none; }
+  .rocket-btn.is-launching .rocket-ship,
+  .rocket-btn.is-landing .rocket-ship { animation: none; }
+}
+
 /* Scroll reveal (only when JS is running, so content is never hidden without it) */
 .js .reveal {
   opacity: 0;

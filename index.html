@@ -552,6 +552,33 @@
       </section>
     </main>
 
+
+    <!-- Rocket: scrolls to the bottom from the top half of the page, to the top from the bottom half -->
+    <button
+      type="button"
+      class="rocket-btn fixed right-4 bottom-4 z-40 grid size-12 place-items-center overflow-hidden rounded-pill border border-border bg-surface/90 text-fg shadow-card backdrop-blur-md transition-[border-color,box-shadow] hover:border-muted/60 hover:shadow-card-hover sm:right-6 sm:bottom-6"
+      data-rocket
+      data-dir="down"
+      aria-label="Scroll to bottom"
+    >
+      <span class="rocket" aria-hidden="true">
+        <span class="rocket-ship">
+          <svg viewBox="0 0 24 32" width="18" height="24">
+            <!-- flame -->
+            <path class="rocket-flame" d="M9.2 23.5h5.6L12 31z" fill="#f59e0b" />
+            <path class="rocket-flame" d="M10.4 23.5h3.2L12 28.2z" fill="#fde68a" />
+            <!-- fins -->
+            <path d="M8 15.5 3.5 20.5v3L8.4 21z" fill="var(--c-accent)" />
+            <path d="M16 15.5l4.5 5v3L15.6 21z" fill="var(--c-accent)" />
+            <!-- body -->
+            <path d="M12 1c3.6 2.6 5.2 7 5.2 12.4 0 3.8-.8 7.2-1.9 10.1H8.7c-1.1-2.9-1.9-6.3-1.9-10.1C6.8 8 8.4 3.6 12 1Z" fill="currentColor" />
+            <!-- window -->
+            <circle cx="12" cy="11" r="2.4" fill="var(--c-accent)" />
+            <circle cx="12" cy="11" r="1.1" fill="var(--c-bg)" />
+          </svg>
+        </span>
+      </span>
+    </button>
     <footer class="border-t border-border/60">
       <div class="container-page flex flex-col items-center justify-between gap-4 py-10 text-sm text-muted sm:flex-row">
         <p>&copy; <span data-year>2026</span> Edwin Alexander Vargas</p>

@@ -174,6 +174,64 @@ if (orbit && ring && !reduceMotion.matches) {
   }).observe(orbit);
 }
 
+/* ---------- Rocket scroll button ---------- */
+const rocket = document.querySelector("[data-rocket]");
+if (rocket) {
+  const maxScroll = () => document.documentElement.scrollHeight - innerHeight;
+  const direction = () => (scrollY > maxScroll() / 2 ? "up" : "down");
+  let busy = false;
+  let ticking = false;
+
+  const syncDirection = () => {
+    const dir = direction();
+    rocket.dataset.dir = dir;
+    rocket.setAttribute("aria-label", dir === "up" ? "Scroll to top" : "Scroll to bottom");
+  };
+  syncDirection();
+  addEventListener(
+    "scroll",
+    () => {
+      if (busy || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        syncDirection();
+        ticking = false;
+      });
+    },
+    { passive: true },
+  );
+
+  rocket.addEventListener("click", () => {
+    if (busy) return;
+    const target = direction() === "up" ? 0 : maxScroll();
+    if (reduceMotion.matches) {
+      scrollTo({ top: target, behavior: "instant" });
+      syncDirection();
+      return;
+    }
+    busy = true;
+    rocket.classList.add("is-launching");
+    // lift off first, then the page follows
+    setTimeout(() => scrollTo({ top: target, behavior: "smooth" }), 180);
+
+    let done = false;
+    const land = () => {
+      if (done) return;
+      done = true;
+      removeEventListener("scrollend", land);
+      rocket.classList.add("is-landing");
+      rocket.classList.remove("is-launching");
+      syncDirection();
+      setTimeout(() => {
+        rocket.classList.remove("is-landing");
+        busy = false;
+      }, 500);
+    };
+    setTimeout(() => addEventListener("scrollend", land, { once: true }), 200);
+    setTimeout(land, 1600); // fallback for browsers without scrollend
+  });
+}
+
 /* ---------- Footer year ---------- */
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
