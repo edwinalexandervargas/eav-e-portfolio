@@ -257,26 +257,37 @@
               </article>
             </li>
 
-            <!-- Movie app -->
+            <!-- Bowling Tracker -->
             <li class="reveal">
               <article class="card card-lift group flex h-full flex-col overflow-hidden">
-                <picture class="block aspect-16/10 overflow-hidden border-b border-border bg-surface-2">
-                  <source type="image/avif" srcset="/Assets/img/movie-app-640.avif 640w, /Assets/img/movie-app-1280.avif 1280w" sizes="(min-width: 768px) 540px, 100vw" />
-                  <source type="image/webp" srcset="/Assets/img/movie-app-640.webp 640w, /Assets/img/movie-app-1280.webp 1280w" sizes="(min-width: 768px) 540px, 100vw" />
-                  <img src="/Assets/img/movie-app-1280.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Movie search app showing a search bar and a grid of movie posters" class="size-full object-cover object-top transition-transform duration-500 ease-out-soft group-hover:scale-[1.02]" />
-                </picture>
+                <div class="relative aspect-16/10 overflow-hidden border-b border-border bg-surface-2">
+                  <picture class="block size-full">
+                    <source type="image/avif" srcset="/Assets/img/bowling-stats-640.avif 640w, /Assets/img/bowling-stats-1280.avif 1280w" sizes="(min-width: 768px) 540px, 100vw" />
+                    <source type="image/webp" srcset="/Assets/img/bowling-stats-640.webp 640w, /Assets/img/bowling-stats-1280.webp 1280w" sizes="(min-width: 768px) 540px, 100vw" />
+                    <img src="/Assets/img/bowling-stats-1280.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Bowling Tracker stats page: a 201 average over 9 games, 237 high game, 648 high series, strike and spare percentages, and averages by oil pattern" class="size-full object-cover object-top transition-transform duration-500 ease-out-soft group-hover:scale-[1.02]" />
+                  </picture>
+                  <picture class="absolute right-3 bottom-3 block w-[46%] overflow-hidden rounded-lg border border-border shadow-card-hover sm:right-4 sm:bottom-4">
+                    <source type="image/avif" srcset="/Assets/img/bowling-pots-520.avif 520w, /Assets/img/bowling-pots-1040.avif 1040w" sizes="(min-width: 768px) 250px, 46vw" />
+                    <source type="image/webp" srcset="/Assets/img/bowling-pots-520.webp 520w, /Assets/img/bowling-pots-1040.webp 1040w" sizes="(min-width: 768px) 250px, 46vw" />
+                    <img src="/Assets/img/bowling-pots-1040.webp" width="1040" height="800" loading="lazy" decoding="async" alt="Side pots screen for a practice night: bingo and 3-6-9 both secured, with the winning frames highlighted on the board" class="block w-full" />
+                  </picture>
+                </div>
                 <div class="flex flex-1 flex-col p-6 sm:p-7">
-                  <h3 class="text-h3 font-semibold">Movie Search App</h3>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="text-h3 font-semibold">Bowling Tracker</h3>
+                    <span class="tag">In progress</span>
+                  </div>
                   <p class="mt-3 text-muted">
-                    Search and filter movies with skeleton loading, saved search history and detail pages that suggest
-                    similar titles.
+                    League and practice tracker: ball-by-ball score sheets, pin-leave tracking, live bingo and 3-6-9
+                    side pots, and stats by oil pattern. Guest mode lets anyone try it without an account. Covered by
+                    280 Vitest tests.
                   </p>
                   <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tech stack">
-                    <li class="tag">React</li><li class="tag">Vite</li><li class="tag">Tailwind CSS</li><li class="tag">React Router</li><li class="tag">Axios</li><li class="tag">OMDb API</li>
+                    <li class="tag">React</li><li class="tag">TypeScript</li><li class="tag">Vite</li><li class="tag">Tailwind CSS</li><li class="tag">Zustand</li><li class="tag">Supabase</li><li class="tag">Vitest</li>
                   </ul>
                   <div class="mt-auto flex gap-5 pt-6">
-                    <a href="https://movies-app-phi-lime-58.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">Live site<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Movie Search App (opens in a new tab)</span></a>
-                    <a href="https://github.com/edwinalexandervargas/react-movie-app" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Movie Search App (opens in a new tab)</span></a>
+                    <a href="https://bowling-tracker-one.vercel.app" target="_blank" rel="noopener noreferrer" class="text-link">Live site<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Bowling Tracker (opens in a new tab)</span></a>
+                    <a href="https://github.com/edwinalexandervargas/bowling-tracker" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Bowling Tracker (opens in a new tab)</span></a>
                   </div>
                 </div>
               </article>
@@ -347,12 +358,13 @@
                   <a href="https://github.com/edwinalexandervargas/netflix-clone" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> streaming browser (opens in a new tab)</span></a>
                 </div>
               </li>
-              <li class="card flex flex-col border-dashed p-5">
-                <p class="flex items-center gap-2 font-display font-semibold text-fg">Bowling Tracker <span class="tag">In progress</span></p>
-                <p class="mt-2 text-sm text-muted">League score sheets, ball arsenal, pin-leave tracking and per-oil-pattern stats, with 280 Vitest tests so far.</p>
-                <p class="mt-4 text-xs text-muted">React · TypeScript · Supabase · Zustand · Vitest</p>
+              <li class="card card-lift flex flex-col p-5">
+                <p class="font-display font-semibold text-fg">Movie Search App</p>
+                <p class="mt-2 text-sm text-muted">Search and filter movies with skeleton loading, saved search history and similar-title suggestions.</p>
+                <p class="mt-4 text-xs text-muted">React · Tailwind CSS · React Router · OMDb API</p>
                 <div class="mt-auto flex gap-4 pt-4">
-                  <a href="https://github.com/edwinalexandervargas/bowling-tracker" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Bowling Tracker (opens in a new tab)</span></a>
+                  <a href="https://movies-app-phi-lime-58.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">Live<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> movie search app (opens in a new tab)</span></a>
+                  <a href="https://github.com/edwinalexandervargas/react-movie-app" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> movie search app (opens in a new tab)</span></a>
                 </div>
               </li>
             </ul>
