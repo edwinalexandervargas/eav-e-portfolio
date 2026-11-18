@@ -31,13 +31,13 @@
   --c-border: #26262a;
   --c-fg: #ededef;
   --c-muted: #a1a1aa;
-  --c-accent: #818cf8;
-  --c-accent-strong: #a5b4fc;
+  --c-accent: #e8b04b;
+  --c-accent-strong: #f2c56b;
   --c-on-accent: #0a0a0b;
   --c-success: #34d399;
   --c-danger: #f87171;
   --c-grid: rgb(255 255 255 / 0.05);
-  --c-glow: rgb(129 140 248 / 0.16);
+  --c-glow: rgb(232 176 75 / 0.14);
   --shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.5);
   --shadow-card-hover: 0 1px 0 0 rgb(255 255 255 / 0.06) inset, 0 2px 4px rgb(0 0 0 / 0.4), 0 20px 40px -12px rgb(0 0 0 / 0.6);
 }
@@ -49,13 +49,13 @@
   --c-border: #e4e4e7;
   --c-fg: #18181b;
   --c-muted: #52525b;
-  --c-accent: #4f46e5;
-  --c-accent-strong: #4338ca;
+  --c-accent: #8a5a0c;
+  --c-accent-strong: #6f4808;
   --c-on-accent: #ffffff;
   --c-success: #047857;
   --c-danger: #b91c1c;
   --c-grid: rgb(0 0 0 / 0.05);
-  --c-glow: rgb(79 70 229 / 0.10);
+  --c-glow: rgb(138 90 12 / 0.10);
   --shadow-card: 0 1px 2px rgb(16 16 20 / 0.06), 0 8px 24px -12px rgb(16 16 20 / 0.12);
   --shadow-card-hover: 0 2px 4px rgb(16 16 20 / 0.06), 0 20px 40px -16px rgb(16 16 20 / 0.2);
 }
