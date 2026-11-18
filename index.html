@@ -234,25 +234,26 @@
               </article>
             </li>
 
-            <!-- Heads-up poker -->
+            <!-- Poker Table -->
             <li class="reveal">
               <article class="card card-lift group flex h-full flex-col overflow-hidden">
-                <!-- TODO: add screenshot (save as Assets/img/poker-640/-1280 .webp/.avif) and swap this placeholder for a <picture> -->
-                <div class="grid aspect-16/10 place-items-center border-b border-border bg-surface-2" role="img" aria-label="Screenshot coming soon">
-                  <span class="todo">TODO: poker screenshot</span>
-                </div>
+                <picture class="block aspect-16/10 overflow-hidden border-b border-border bg-surface-2">
+                  <source type="image/avif" srcset="/Assets/img/poker-640.avif 640w, /Assets/img/poker-1280.avif 1280w" sizes="(min-width: 768px) 540px, 100vw" />
+                  <source type="image/webp" srcset="/Assets/img/poker-640.webp 640w, /Assets/img/poker-1280.webp 1280w" sizes="(min-width: 768px) 540px, 100vw" />
+                  <img src="/Assets/img/poker-1280.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Poker table with six players on the flop, your hole cards, a hand-strength bar and the Fold, Call and Raise buttons" class="size-full object-cover object-top transition-transform duration-500 ease-out-soft group-hover:scale-[1.02]" />
+                </picture>
                 <div class="flex flex-1 flex-col p-6 sm:p-7">
-                  <h3 class="text-h3 font-semibold">Heads-up Poker</h3>
+                  <h3 class="text-h3 font-semibold">Poker Table</h3>
                   <p class="mt-3 text-muted">
-                    Play-money heads-up Texas Hold'em that friends play together across devices. The game engine is
-                    written test-first and covered by 340+ Vitest tests.
+                    Play-money Texas Hold'em for 2 to 8 friends across devices. The server deals and checks every move,
+                    and the game engine is written test-first and covered by 340+ Vitest tests.
                   </p>
                   <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tech stack">
-                    <li class="tag">React</li><li class="tag">TypeScript</li><li class="tag">Vite</li><li class="tag">Zustand</li><li class="tag">Tailwind CSS</li><li class="tag">Firebase</li><li class="tag">Vitest</li>
+                    <li class="tag">React</li><li class="tag">TypeScript</li><li class="tag">Vite</li><li class="tag">Zustand</li><li class="tag">Tailwind CSS</li><li class="tag">Firebase</li><li class="tag">Cloud Functions</li><li class="tag">Vitest</li>
                   </ul>
                   <div class="mt-auto flex flex-wrap items-center gap-5 pt-6">
-                    <a href="https://poker-fb69e.web.app" target="_blank" rel="noopener noreferrer" class="text-link">Live site<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Heads-up Poker (opens in a new tab)</span></a>
-                    <a href="https://github.com/edwinalexandervargas/poker" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Heads-up Poker (opens in a new tab)</span></a>
+                    <a href="https://poker-fb69e.web.app" target="_blank" rel="noopener noreferrer" class="text-link">Live site<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Poker Table (opens in a new tab)</span></a>
+                    <a href="https://github.com/edwinalexandervargas/poker" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Poker Table (opens in a new tab)</span></a>
                   </div>
                 </div>
               </article>
@@ -493,7 +494,7 @@
               <span class="absolute top-1.5 -left-[29px] size-2.5 rounded-full bg-accent ring-4 ring-bg" aria-hidden="true"></span>
               <p class="text-sm text-muted">Now</p>
               <p class="mt-1 font-display font-semibold text-fg">Frontend developer</p>
-              <p class="mt-1 text-sm text-muted">Client work and personal projects, including AP Plumbing and Heads-up Poker.</p>
+              <p class="mt-1 text-sm text-muted">Client work and personal projects, including AP Plumbing and Poker Table.</p>
             </li>
             <li class="relative">
               <span class="absolute top-1.5 -left-[29px] size-2.5 rounded-full bg-muted ring-4 ring-bg" aria-hidden="true"></span>
