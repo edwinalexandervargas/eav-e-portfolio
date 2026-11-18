@@ -2,7 +2,7 @@
 
 Personal portfolio: featured projects, skills, background and contact.
 
-🔗 [Live site](https://edwin-portfolio-theta.vercel.app/)
+🔗 [Live site](https://edwinvargas.dev/)
 
 ## Built with
 
