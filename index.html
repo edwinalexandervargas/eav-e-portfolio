@@ -285,10 +285,11 @@
             <!-- Summarist -->
             <li class="reveal">
               <article class="card card-lift group flex h-full flex-col overflow-hidden">
-                <!-- TODO: add screenshot (Assets/img/summarist-640/-1280 .webp/.avif) -->
-                <div class="grid aspect-16/10 place-items-center border-b border-border bg-surface-2" role="img" aria-label="Screenshot coming soon">
-                  <span class="todo">TODO: Summarist screenshot</span>
-                </div>
+                <picture class="block aspect-16/10 overflow-hidden border-b border-border bg-surface-2">
+                  <source type="image/avif" srcset="/Assets/img/summarist-640.avif 640w, /Assets/img/summarist-1280.avif 1280w" sizes="(min-width: 768px) 540px, 100vw" />
+                  <source type="image/webp" srcset="/Assets/img/summarist-640.webp 640w, /Assets/img/summarist-1280.webp 1280w" sizes="(min-width: 768px) 540px, 100vw" />
+                  <img src="/Assets/img/summarist-1280.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Summarist home page: Gain more knowledge in less time, with a Login button and an illustration of a reader" class="size-full object-cover object-top transition-transform duration-500 ease-out-soft group-hover:scale-[1.02]" />
+                </picture>
                 <div class="flex flex-1 flex-col p-6 sm:p-7">
                   <h3 class="text-h3 font-semibold">Summarist</h3>
                   <p class="mt-3 text-muted">
@@ -298,9 +299,9 @@
                   <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tech stack">
                     <li class="tag">Next.js</li><li class="tag">React</li><li class="tag">Redux Toolkit</li><li class="tag">Firebase</li><li class="tag">Stripe</li>
                   </ul>
-                  <div class="mt-auto flex flex-wrap gap-3 pt-6">
-                    <span class="todo">TODO: live link</span>
-                    <span class="todo">TODO: code link (repo is private)</span>
+                  <div class="mt-auto flex gap-5 pt-6">
+                    <a href="https://summarist-app-two.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">Live site<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Summarist (opens in a new tab)</span></a>
+                    <a href="https://github.com/edwinalexandervargas/summarist-app" target="_blank" rel="noopener noreferrer" class="text-link">Code<svg class="size-3.5" aria-hidden="true"><use href="#i-arrow" /></svg><span class="sr-only"> for Summarist (opens in a new tab)</span></a>
                   </div>
                 </div>
               </article>
